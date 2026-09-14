@@ -217,12 +217,25 @@
   // Update target progress from window scroll
   function updateScrollProgress() {
     const scrollY = window.scrollY || window.pageYOffset;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollTrack = document.querySelector('.scroll-track');
+    const trackHeight = scrollTrack ? scrollTrack.offsetHeight : (document.documentElement.scrollHeight - window.innerHeight);
     
-    if (maxScroll > 0) {
-      targetScrollProgress = Math.max(0, Math.min(1, scrollY / maxScroll));
+    if (trackHeight > 0) {
+      targetScrollProgress = Math.max(0, Math.min(1, scrollY / trackHeight));
     } else {
       targetScrollProgress = 0;
+    }
+
+    // Fade UI overlay (frame counter & progress bar) when scrolling into bottom banner
+    const uiOverlay = document.querySelector('.ui-overlay');
+    if (uiOverlay) {
+      if (scrollY >= trackHeight - 50) {
+        uiOverlay.style.opacity = '0';
+        uiOverlay.style.pointerEvents = 'none';
+      } else {
+        uiOverlay.style.opacity = '1';
+        uiOverlay.style.pointerEvents = 'none';
+      }
     }
 
     // Dynamic header styling on scroll
@@ -329,16 +342,7 @@
       infoModal.setAttribute('aria-hidden', 'false');
     }
 
-    if (navAboutBtn) {
-      navAboutBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        openInfoModal(
-          'About meet4lyf',
-          'Meaningful Meetups. Real Connections.',
-          '<p><strong>meet4lyf</strong> is designed for modern matchmaking that prioritizes authenticity, trust, and deep compatibility.</p><p style="margin-top: 10px;">We bring like-minded individuals together through curated physical meetups, personalized relationship managers, and verified member circles.</p>'
-        );
-      });
-    }
+    // navAboutBtn now navigates directly to about.html
 
     if (navBlogsBtn) {
       navBlogsBtn.addEventListener('click', (e) => {
@@ -374,6 +378,59 @@
       });
     }
 
+    // Step item interactive triggers
+    const stepSignup = document.getElementById('step-signup');
+    const stepMeetRm = document.getElementById('step-meet-rm');
+    const stepJoinMeetups = document.getElementById('step-join-meetups');
+    const stepConnectInteract = document.getElementById('step-connect-interact');
+    const stepFindJodi = document.getElementById('step-find-jodi');
+
+    if (stepSignup && authModal) {
+      stepSignup.addEventListener('click', () => {
+        authModal.classList.add('open');
+        authModal.setAttribute('aria-hidden', 'false');
+        if (tabSignup) tabSignup.click();
+      });
+    }
+
+    if (stepMeetRm) {
+      stepMeetRm.addEventListener('click', () => {
+        openInfoModal(
+          'Personalized Relationship Manager (RM)',
+          'Verification & Expectations Setting',
+          '<p>Every member is paired with an experienced Relationship Manager for thorough verification, background validation, and detailed understanding of your relationship values and life partner expectations.</p>'
+        );
+      });
+    }
+
+    if (stepJoinMeetups) {
+      stepJoinMeetups.addEventListener('click', () => {
+        openInfoModal(
+          'Curated Marriage Cohort Meetups',
+          'Courteous, Curated In-Person Gatherings',
+          '<p>Skip endless superficial texting. We host private high-tea mixers, cohort dinners, and matrimonial meetups where you can meet prospective partners in a warm, respectful setting.</p>'
+        );
+      });
+    }
+
+    if (stepConnectInteract) {
+      stepConnectInteract.addEventListener('click', () => {
+        openInfoModal(
+          'Connect & Interact',
+          'Safe, Verified and Meaningful Dialogue',
+          '<p>Express interest directly, schedule one-on-one virtual or physical introductions, and connect with 100% ID-verified matches in full confidentiality.</p>'
+        );
+      });
+    }
+
+    if (stepFindJodi && authModal) {
+      stepFindJodi.addEventListener('click', () => {
+        authModal.classList.add('open');
+        authModal.setAttribute('aria-hidden', 'false');
+        if (tabSignup) tabSignup.click();
+      });
+    }
+
     // ESC key closes any open modal
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -387,6 +444,75 @@
         }
       }
     });
+  }
+
+  // Setup Callback Widget
+  function setupCallbackWidget() {
+    const callbackCard = document.getElementById('callback-card');
+    const callbackToggleBtn = document.getElementById('callback-toggle-btn');
+    const callbackPillBtn = document.getElementById('callback-pill-btn');
+    const callbackForm = document.getElementById('callback-form');
+    const callbackName = document.getElementById('callback-name');
+    const callbackPhone = document.getElementById('callback-phone');
+    const callbackSubmitBtn = document.getElementById('callback-submit-btn');
+    const callbackSuccess = document.getElementById('callback-success');
+    const successPhoneDisplay = document.getElementById('success-phone-display');
+    const callbackResetBtn = document.getElementById('callback-reset-btn');
+
+    if (!callbackCard) return;
+
+    // Minimize to pill button
+    if (callbackToggleBtn && callbackPillBtn) {
+      callbackToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        callbackCard.style.display = 'none';
+        callbackPillBtn.style.display = 'inline-flex';
+      });
+
+      // Expand back from pill
+      callbackPillBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        callbackPillBtn.style.display = 'none';
+        callbackCard.style.display = 'block';
+      });
+    }
+
+    // Handle form submission
+    if (callbackForm) {
+      callbackForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const phoneVal = callbackPhone ? callbackPhone.value.trim() : '';
+
+        if (!phoneVal) return;
+
+        if (callbackSubmitBtn) {
+          callbackSubmitBtn.disabled = true;
+          callbackSubmitBtn.textContent = 'Submitting...';
+        }
+
+        setTimeout(() => {
+          if (callbackForm) callbackForm.style.display = 'none';
+          if (callbackSuccess) callbackSuccess.style.display = 'block';
+          if (successPhoneDisplay) successPhoneDisplay.textContent = phoneVal;
+
+          if (callbackSubmitBtn) {
+            callbackSubmitBtn.disabled = false;
+            callbackSubmitBtn.textContent = 'Request a Call Back';
+          }
+        }, 500);
+      });
+    }
+
+    // Reset form to send another request
+    if (callbackResetBtn) {
+      callbackResetBtn.addEventListener('click', () => {
+        if (callbackForm) {
+          callbackForm.reset();
+          callbackForm.style.display = 'flex';
+        }
+        if (callbackSuccess) callbackSuccess.style.display = 'none';
+      });
+    }
   }
 
   // Event Listeners
@@ -409,6 +535,7 @@
     resizeCanvas();
     updateScrollProgress();
     setupModals();
+    setupCallbackWidget();
     renderLoop();
     preloadAllFrames();
   }

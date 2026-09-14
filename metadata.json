@@ -1,0 +1,8 @@
+{
+  "name": "meet4lyf - Confluence",
+  "description": "Scroll-driven frame animation engine and interactive experience for meet4lyf.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
