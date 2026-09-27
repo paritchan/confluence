@@ -1858,4 +1858,878 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   FAQ Page - Exact Brand Color Template
+   Aligned with meet4lyf Royal Maroon (#4a0e17), Gold (#e5c158), & Dark Luxury
+   ========================================================================== */
+.faq-page-body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.faq-page-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.faq-bg-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.28) contrast(1.15) saturate(0.9);
+  transform: scale(1.02);
+}
+
+.faq-bg-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(180deg, rgba(7, 7, 9, 0.85) 0%, rgba(7, 7, 9, 0.72) 35%, rgba(7, 7, 9, 0.92) 80%, rgba(7, 7, 9, 1) 100%),
+    radial-gradient(ellipse 85% 65% at 20% 25%, rgba(74, 14, 23, 0.45) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 60% at 85% 65%, rgba(229, 193, 88, 0.12) 0%, transparent 65%);
+}
+
+.faq-main-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 135px 24px 100px;
+}
+
+/* Luxury Hero Header */
+.faq-hero-container {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.faq-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74, 14, 23, 0.45);
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.faq-super-title {
+  font-family: var(--font-family);
+  font-size: clamp(3.6rem, 7.5vw, 5.8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+}
+
+.faq-sub-caption {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.02em;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.faq-sub-caption .highlight-gold {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Category Dividers */
+.faq-section-divider {
+  margin: 40px 0 18px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.faq-category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(229, 193, 88, 0.12);
+  border: 1px solid rgba(229, 193, 88, 0.32);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Accordion Stack */
+.faq-accordion-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Glow Card Container */
+.faq-glow-card {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 193, 88, 0.2);
+  background: linear-gradient(135deg, rgba(32, 11, 18, 0.78) 0%, rgba(14, 7, 10, 0.92) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Ambient Radial Glow on Lower Left matching Screenshot with brand Gold/Maroon */
+.faq-glow-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 52%;
+  height: 95%;
+  background: radial-gradient(circle at 10% 90%, rgba(229, 193, 88, 0.28) 0%, rgba(130, 17, 39, 0.22) 45%, transparent 75%);
+  pointer-events: none;
+  opacity: 0.75;
+  transition: opacity 0.35s ease, transform 0.35s ease, width 0.35s ease;
+  z-index: 1;
+}
+
+.faq-glow-card:hover {
+  border-color: rgba(229, 193, 88, 0.48);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.65), 0 0 24px rgba(229, 193, 88, 0.16);
+}
+
+.faq-glow-card:hover::before {
+  opacity: 1;
+}
+
+.faq-glow-card.active {
+  border-color: rgba(229, 193, 88, 0.7);
+  background: linear-gradient(135deg, rgba(46, 14, 25, 0.88) 0%, rgba(16, 7, 12, 0.96) 100%);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.75), 0 0 32px rgba(229, 193, 88, 0.22);
+}
+
+.faq-glow-card.active::before {
+  opacity: 1;
+  width: 65%;
+  height: 100%;
+}
+
+/* Accordion Trigger Button */
+.faq-glow-btn {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.faq-btn-title-group {
+  flex: 1;
+}
+
+.faq-btn-label {
+  display: block;
+  font-family: var(--font-family);
+  font-size: clamp(1.02rem, 1.35vw, 1.18rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.45;
+  transition: color 0.25s ease;
+}
+
+.faq-glow-card.active .faq-btn-label {
+  color: var(--accent-gold-light);
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.35);
+}
+
+/* Minimalist +/- Toggle Icon */
+.faq-toggle-icon {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+}
+
+.faq-icon-line {
+  position: absolute;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.line-horizontal {
+  width: 20px;
+  height: 2px;
+}
+
+.line-vertical {
+  width: 2px;
+  height: 20px;
+}
+
+.faq-glow-card.active .line-vertical {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.faq-glow-card.active .line-horizontal {
+  background-color: #ffffff;
+}
+
+/* Accordion Body Content */
+.faq-glow-body {
+  display: none;
+  position: relative;
+  z-index: 2;
+  padding: 0 28px 26px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.72;
+  border-top: 1px solid rgba(229, 193, 88, 0.15);
+  margin-top: -4px;
+  padding-top: 18px;
+  animation: faqSmoothSlide 0.3s ease-out;
+}
+
+.faq-glow-card.active .faq-glow-body {
+  display: block;
+}
+
+.faq-glow-body p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.74;
+}
+
+.faq-text-link {
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.faq-text-link:hover {
+  color: #ffffff;
+}
+
+/* Bottom Callout Banner matching About Us & Website Style */
+.faq-bottom-banner {
+  margin-top: 70px;
+  padding: 46px 34px;
+  background: linear-gradient(135deg, rgba(46, 14, 25, 0.88) 0%, rgba(18, 7, 12, 0.95) 100%);
+  border: 1px solid rgba(229, 193, 88, 0.38);
+  border-radius: 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+}
+
+.faq-bottom-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(229, 193, 88, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.faq-bottom-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-bottom-desc {
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 600px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-bottom-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-primary-cta {
+  background: var(--accent-gold);
+  color: #120306;
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 13px 30px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(229, 193, 88, 0.35);
+}
+
+.faq-primary-cta:hover {
+  background: #f7e4a4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(229, 193, 88, 0.55);
+}
+
+.faq-secondary-cta {
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(229, 193, 88, 0.45);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-secondary-cta:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1.5px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 680px) {
+  .faq-main-wrapper {
+    padding: 110px 16px 70px;
+  }
+  .faq-super-title {
+    font-size: 3.2rem;
+  }
+  .faq-glow-card {
+    border-radius: 16px;
+  }
+  .faq-glow-btn {
+    padding: 18px 18px;
+    gap: 14px;
+  }
+  .faq-btn-label {
+    font-size: 0.94rem;
+  }
+  .faq-toggle-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .line-horizontal {
+    width: 17px;
+  }
+  .line-vertical {
+    height: 17px;
+  }
+  .faq-glow-body {
+    padding: 0 18px 20px;
+    font-size: 0.92rem;
+  }
+  .faq-bottom-banner {
+    padding: 32px 18px;
+  }
+  .faq-bottom-actions {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================================================
+   About Page - Terms of Use Web Link Styling
+   ========================================================================== */
+.about-terms-link-section {
+  margin-top: clamp(48px, 6vw, 72px);
+  position: relative;
+  z-index: 2;
+}
+
+.about-terms-link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, rgba(32, 12, 19, 0.85) 0%, rgba(14, 6, 10, 0.95) 100%);
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  border-radius: 20px;
+  padding: 28px 36px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-terms-link-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(229, 193, 88, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-terms-link-card:hover {
+  border-color: rgba(229, 193, 88, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.65), 0 0 20px rgba(229, 193, 88, 0.12);
+}
+
+.about-terms-link-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.terms-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(229, 193, 88, 0.12);
+  border: 1px solid rgba(229, 193, 88, 0.28);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  margin-bottom: 10px;
+}
+
+.about-terms-link-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.about-terms-link-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.about-terms-weblink-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(229, 193, 88, 0.18) 0%, rgba(130, 17, 39, 0.28) 100%);
+  border: 1.5px solid var(--accent-gold);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.about-terms-weblink-btn:hover {
+  background: var(--accent-gold);
+  color: #120306;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(229, 193, 88, 0.45);
+}
+
+.about-terms-weblink-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.about-terms-weblink-btn:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 680px) {
+  .about-terms-link-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 18px;
+  }
+  .about-terms-weblink-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Terms of Use Page (terms.html) Styling
+   ========================================================================== */
+.legal-main-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 135px 24px 100px;
+}
+
+.legal-hero-header {
+  margin-bottom: 36px;
+  text-align: left;
+}
+
+.legal-main-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.legal-meta-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.legal-meta-strip strong {
+  color: var(--accent-gold);
+}
+
+.legal-meta-divider {
+  color: rgba(229, 193, 88, 0.5);
+}
+
+.legal-intro-card {
+  background: linear-gradient(135deg, rgba(32, 11, 18, 0.82) 0%, rgba(14, 7, 10, 0.94) 100%);
+  border: 1px solid rgba(229, 193, 88, 0.28);
+  border-radius: 18px;
+  padding: 24px 28px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.legal-intro-card p {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.legal-intro-card p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-intro-card strong {
+  color: #ffffff;
+}
+
+/* Legal Content Card holding all sections */
+.legal-content-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legal-section {
+  background: linear-gradient(135deg, rgba(26, 10, 16, 0.78) 0%, rgba(12, 6, 9, 0.92) 100%);
+  border: 1px solid rgba(229, 193, 88, 0.2);
+  border-radius: 20px;
+  padding: 30px 32px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.legal-section:hover {
+  border-color: rgba(229, 193, 88, 0.42);
+}
+
+.legal-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legal-section-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(229, 193, 88, 0.12);
+  border: 1px solid rgba(229, 193, 88, 0.32);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.legal-section-title {
+  font-family: var(--font-family);
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.legal-clause-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.legal-clause-item {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.legal-clause-tag {
+  font-family: var(--font-family);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(229, 193, 88, 0.08);
+  border: 1px solid rgba(229, 193, 88, 0.22);
+  padding: 2px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.legal-clause-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legal-clause-item p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.74;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.legal-clause-item strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.legal-subclause-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.legal-subclause-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+}
+
+.legal-subclause-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(229, 193, 88, 0.25);
+}
+
+.legal-subclause-num {
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  min-width: 18px;
+  line-height: 1.6;
+}
+
+.legal-subclause-text {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.legal-numbered-list {
+  margin: 10px 0 0 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.legal-numbered-list li {
+  padding-left: 4px;
+}
+
+.legal-link {
+  color: var(--accent-gold);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.legal-link:hover {
+  color: #ffffff;
+}
+
+/* Bottom Closing Card */
+.legal-closing-banner {
+  margin-top: 24px;
+  padding: 38px 30px;
+  background: linear-gradient(135deg, rgba(46, 14, 25, 0.88) 0%, rgba(18, 7, 12, 0.96) 100%);
+  border: 1.5px solid rgba(229, 193, 88, 0.38);
+  border-radius: 22px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+}
+
+.closing-brand-badge {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+
+.closing-entity-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.closing-note {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 620px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.closing-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 680px) {
+  .legal-main-wrapper {
+    padding: 110px 16px 70px;
+  }
+  .legal-main-title {
+    font-size: 2.6rem;
+  }
+  .legal-section {
+    padding: 22px 18px;
+  }
+  .legal-clause-item {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .legal-clause-tag {
+    margin-top: 0;
+  }
+  .legal-closing-banner {
+    padding: 28px 18px;
+  }
+  .closing-actions {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
 
