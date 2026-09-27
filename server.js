@@ -11,19 +11,25 @@ const PORT = 3000;
 // Serve static assets from the root directory
 app.use(express.static(__dirname));
 
-// About page route
+// Routes
 app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'about.html'));
 });
 
-// FAQ page route
 app.get('/faq', (req, res) => {
   res.sendFile(path.join(__dirname, 'faq.html'));
 });
 
-// Terms of Use page route
 app.get('/terms', (req, res) => {
   res.sendFile(path.join(__dirname, 'terms.html'));
+});
+
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, 'signup.html'));
+});
+
+app.get('/apply', (req, res) => {
+  res.sendFile(path.join(__dirname, 'signup.html'));
 });
 
 // Fallback all routes to index.html
