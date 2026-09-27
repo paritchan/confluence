@@ -7,7 +7,7 @@
   <meta name="description" content="Apply for meet4lyf membership. An invite-only community for singles serious about finding a long-term partner.">
   <meta property="og:title" content="Membership Application - meet4lyf">
   <meta property="og:description" content="Apply for meet4lyf membership. Conversation-led, not swipe-led.">
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="icon" type="image/jpeg" href="logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     <div class="header-inner">
       <a href="/" class="brand-link" id="brand-link">
         <div class="logo-wrapper">
-          <img src="logo.jpg" alt="meet4lyf logo" class="brand-logo">
+          <img src="logo.webp" alt="meet4lyf logo" class="brand-logo" decoding="async">
         </div>
         <span class="brand-title">meet<span class="brand-highlight">4</span>lyf</span>
       </a>
@@ -40,9 +40,10 @@
       
       <!-- Header Banner / Intro -->
       <header class="signup-header">
+        <div class="signup-badge-tag">Curated Matrimony Community</div>
         <h1 class="signup-main-title">Welcome to the meet4lyf membership application</h1>
         <p class="signup-subtitle">
-          meet4lyf is an invite-only community for singles in Bangalore, Chennai, Hyderabad, Mumbai and Delhi NCR.
+          meet4lyf is an invite-only community for singles intending to find their life partner.
         </p>
 
         <!-- Bullet Highlights with Magenta Arrow Icons -->
@@ -133,16 +134,41 @@
         <!-- Row 2: WhatsApp Number, Email, City of Residence -->
         <div class="form-grid-3">
           <div class="form-field">
-            <label for="whatsapp" class="field-label">My whatsapp number</label>
+            <label for="phone" class="field-label">My number</label>
             <div class="phone-input-group">
-              <span class="phone-country-code">+91 India</span>
+              <div class="country-code-select-wrap">
+                <select id="countryCode" name="countryCode" class="country-code-select" aria-label="Country Code">
+                  <option value="+91" selected>🇮🇳 +91 (India)</option>
+                  <option value="+1">🇺🇸 +1 (US / Canada)</option>
+                  <option value="+44">🇬🇧 +44 (UK)</option>
+                  <option value="+971">🇦🇪 +971 (UAE)</option>
+                  <option value="+65">🇸🇬 +65 (Singapore)</option>
+                  <option value="+61">🇦🇺 +61 (Australia)</option>
+                  <option value="+49">🇩🇪 +49 (Germany)</option>
+                  <option value="+33">🇫🇷 +33 (France)</option>
+                  <option value="+31">🇳🇱 +31 (Netherlands)</option>
+                  <option value="+41">🇨🇭 +41 (Switzerland)</option>
+                  <option value="+353">🇮🇪 +353 (Ireland)</option>
+                  <option value="+966">🇸🇦 +966 (Saudi Arabia)</option>
+                  <option value="+974">🇶🇦 +974 (Qatar)</option>
+                  <option value="+968">🇴🇲 +968 (Oman)</option>
+                  <option value="+965">🇰🇼 +965 (Kuwait)</option>
+                  <option value="+64">🇳🇿 +64 (New Zealand)</option>
+                  <option value="+852">🇭🇰 +852 (Hong Kong)</option>
+                  <option value="+60">🇲🇾 +60 (Malaysia)</option>
+                  <option value="+81">🇯🇵 +81 (Japan)</option>
+                  <option value="+27">🇿🇦 +27 (South Africa)</option>
+                  <option value="other">🌐 Other</option>
+                </select>
+                <span class="select-chevron mini-chevron" aria-hidden="true"></span>
+              </div>
               <input 
                 type="tel" 
-                id="whatsapp" 
-                name="whatsapp" 
+                id="phone" 
+                name="phone" 
                 class="field-input phone-field" 
-                placeholder="0123456789" 
-                pattern="[0-9]{10}"
+                placeholder="98765 43210" 
+                autocomplete="tel"
                 required
               >
             </div>
@@ -255,7 +281,7 @@
                   <path d="M6 10.2l2.8 2.8 5.2-5.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </span>
-              <span class="manifesto-text">meet4lyf is different from dating apps and matchmaking services.</span>
+              <span class="manifesto-text">meet4lyf is a unique matchmaking service different from other apps.</span>
             </div>
 
             <div class="manifesto-point">
@@ -275,7 +301,7 @@
                   <path d="M6 10.2l2.8 2.8 5.2-5.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </span>
-              <span class="manifesto-text">We're built on WhatsApp. Conversation-led, not swipe-led.</span>
+              <span class="manifesto-text">We create fun, curated social meetups where marriage-minded singles can meet new people, connect naturally.</span>
             </div>
 
             <div class="manifesto-point">
@@ -285,23 +311,12 @@
                   <path d="M6 10.2l2.8 2.8 5.2-5.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </span>
-              <span class="manifesto-text">Finding the right partner requires your active participation.</span>
+              <span class="manifesto-text">Finding the right partner requires your active participation in group and individual meetups.</span>
             </div>
           </div>
         </div>
 
-        <!-- Section: Understand and agree dropdown -->
-        <div class="form-field full-width-field">
-          <label for="understandAgree" class="field-label">Do you understand and agree with how meet4lyf works?</label>
-          <div class="custom-select-wrap">
-            <select id="understandAgree" name="understandAgree" class="field-select" required>
-              <option value="" disabled selected>Select...</option>
-              <option value="Yes">Yes, I understand and agree</option>
-              <option value="No">No, I'm looking for casual swiping</option>
-            </select>
-            <span class="select-chevron" aria-hidden="true"></span>
-          </div>
-        </div>
+        
 
         <!-- Consent Checkbox -->
         <div class="consent-checkbox-row">
@@ -315,7 +330,7 @@
             <span class="checkbox-label-text">
               I confirm that the information provided is accurate and confirm to share with meet4lyf and agree to 
               <a href="/terms" target="_blank" class="legal-link">Terms of Use</a> and 
-              <a href="/terms#privacy" target="_blank" class="legal-link">Privacy Policy</a>
+              <a href="/faq" target="_blank" class="legal-link">FAQ</a>
             </span>
           </label>
         </div>
@@ -345,7 +360,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo-wrapper">
-          <img src="logo.jpg" alt="meet4lyf" class="footer-logo">
+          <img src="logo.webp" alt="meet4lyf" class="footer-logo" loading="lazy" decoding="async">
         </div>
         <p class="footer-tagline">Crafting lifelong bonds through mindful human connections.</p>
         <p class="footer-entity">meet4lyf is owned and operated by Appchef Technologies Private Limited.</p>

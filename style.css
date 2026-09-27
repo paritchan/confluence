@@ -2069,8 +2069,8 @@ html, body {
   font-family: var(--font-family);
   font-size: clamp(1.02rem, 1.35vw, 1.18rem);
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-transform: none;
   color: #ffffff;
   line-height: 1.45;
   transition: color 0.25s ease;
@@ -2737,73 +2737,134 @@ html, body {
 /* ==========================================================================
    MEMBERSHIP SIGNUP & APPLICATION PAGE STYLES
    ========================================================================== */
+
+/* ==========================================================================
+   Refined Signup / Membership Page (Website-Compatible Luxury Light Theme)
+   ========================================================================== */
+
+/* ==========================================================================
+   Refined Signup / Membership Page (Website-Compatible Luxury Light Theme)
+   ========================================================================== */
 .signup-page-body {
-  background-color: #faf9f6;
-  color: #262626;
+  background: radial-gradient(circle at 10% 20%, rgba(229, 193, 88, 0.08) 0%, rgba(253, 251, 247, 1) 40%, rgba(248, 243, 235, 1) 100%) !important;
+  color: #241419;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.signup-page-body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(229, 193, 88, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.6;
+  z-index: 0;
 }
 
 .signup-container {
   flex: 1;
-  padding: 120px 24px 80px;
+  padding: 110px 24px 80px;
   max-width: 980px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .signup-paper {
   background: #ffffff;
-  border: 1px solid #ede8e3;
-  border-radius: 16px;
-  padding: 48px 56px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  border-radius: 20px;
+  padding: 50px 58px;
+  box-shadow: 
+    0 10px 40px -10px rgba(74, 14, 23, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.02),
+    0 0 0 1px rgba(229, 193, 88, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.signup-paper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e5c158 0%, #ff3b69 50%, #4a0e17 100%);
 }
 
 @media (max-width: 768px) {
   .signup-paper {
-    padding: 28px 20px;
-    border-radius: 12px;
+    padding: 30px 20px;
+    border-radius: 14px;
   }
   .signup-container {
-    padding: 100px 16px 50px;
+    padding: 95px 16px 50px;
   }
 }
 
 .signup-header {
-  margin-bottom: 36px;
+  margin-bottom: 34px;
+  border-bottom: 1px solid #f1ece4;
+  padding-bottom: 26px;
 }
 
-.signup-main-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 34px;
-  line-height: 1.25;
-  font-weight: 600;
-  color: #383838;
-  letter-spacing: -0.01em;
+.signup-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 193, 88, 0.18);
+  border: 1px solid rgba(229, 193, 88, 0.45);
+  color: #724c08;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 9999px;
   margin-bottom: 14px;
 }
 
-@media (max-width: 768px) {
-  .signup-main-title {
-    font-size: 26px;
-  }
+.signup-badge-tag::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c48e2d;
+}
+
+.signup-main-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 36px);
+  line-height: 1.25;
+  font-weight: 700;
+  color: #2b0b14;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
 }
 
 .signup-subtitle {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
-  font-size: 19px;
-  color: #4a4a4a;
+  font-size: 18px;
+  color: #5c3b45;
   line-height: 1.5;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .signup-bullet-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 32px 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2813,9 +2874,9 @@ html, body {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 15px;
-  color: #3b3b3b;
+  color: #3f2e34;
   line-height: 1.5;
 }
 
@@ -2827,7 +2888,7 @@ html, body {
 }
 
 .signup-bullet-text {
-  font-weight: 400;
+  font-weight: 450;
 }
 
 /* Form Grid Layouts */
@@ -2868,10 +2929,10 @@ html, body {
 }
 
 .field-label {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-size: 14.5px;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 14px;
   font-weight: 600;
-  color: #2b2b2b;
+  color: #2b0b14;
   line-height: 1.3;
 }
 
@@ -2881,39 +2942,39 @@ html, body {
   height: 48px;
   padding: 0 16px;
   background: #ffffff;
-  border: 1px solid #d4d4d4;
-  border-radius: 8px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  border: 1px solid #dcd3c7;
+  border-radius: 9px;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 15px;
-  color: #1f1f1f;
+  color: #1f1418;
   transition: all 0.2s ease;
   outline: none;
   box-sizing: border-box;
 }
 
-.field-input::placeholder {
-  color: #a3a3a3;
-  font-weight: 400;
-}
-
 .field-input:focus,
 .field-select:focus {
-  border-color: #c41d7f;
-  box-shadow: 0 0 0 3px rgba(196, 29, 127, 0.12);
+  border-color: #ff3b69;
+  box-shadow: 0 0 0 3.5px rgba(255, 59, 105, 0.12);
 }
 
-/* Custom Select Dropdowns */
+.field-input::placeholder {
+  color: #a39599;
+}
+
+/* Custom Select with Chevron */
 .custom-select-wrap {
   position: relative;
-  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.custom-select-wrap select {
+.custom-select-wrap .field-select {
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none;
+  padding-right: 36px;
   cursor: pointer;
-  padding-right: 38px;
+  background-color: #ffffff;
 }
 
 .select-chevron {
@@ -2923,18 +2984,24 @@ html, body {
   transform: translateY(-50%);
   width: 8px;
   height: 8px;
-  border-right: 2px solid #737373;
-  border-bottom: 2px solid #737373;
-  transform: translateY(-65%) rotate(45deg);
+  border-right: 2px solid #6b585e;
+  border-bottom: 2px solid #6b585e;
+  transform-origin: center;
+  rotate: 45deg;
   pointer-events: none;
+  transition: border-color 0.2s ease;
 }
 
-/* Phone input with fixed prefix */
+.custom-select-wrap:focus-within .select-chevron {
+  border-color: #ff3b69;
+}
+
+/* Country Code Dropdown and Phone Field */
 .phone-input-group {
   display: flex;
   align-items: center;
-  border: 1px solid #d4d4d4;
-  border-radius: 8px;
+  border: 1px solid #dcd3c7;
+  border-radius: 9px;
   background: #ffffff;
   transition: all 0.2s ease;
   overflow: hidden;
@@ -2942,22 +3009,44 @@ html, body {
 }
 
 .phone-input-group:focus-within {
-  border-color: #c41d7f;
-  box-shadow: 0 0 0 3px rgba(196, 29, 127, 0.12);
+  border-color: #ff3b69;
+  box-shadow: 0 0 0 3.5px rgba(255, 59, 105, 0.12);
 }
 
-.phone-country-code {
-  padding: 0 14px;
-  background: #f7f7f7;
-  border-right: 1px solid #d4d4d4;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  font-size: 14.5px;
-  color: #333333;
+.country-code-select-wrap {
+  position: relative;
+  height: 100%;
+  background: #fbf7f2;
+  border-right: 1px solid #dcd3c7;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+  max-width: 155px;
+}
+
+.country-code-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
   height: 100%;
+  padding: 0 28px 0 12px;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: #3b2029;
+  cursor: pointer;
+  outline: none;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  user-select: none;
+}
+
+.mini-chevron {
+  right: 10px;
+  width: 7px;
+  height: 7px;
+  border-width: 1.8px;
+  border-color: #6b585e;
 }
 
 .phone-field {
@@ -2965,6 +3054,7 @@ html, body {
   border-radius: 0 !important;
   box-shadow: none !important;
   flex: 1;
+  padding: 0 14px;
 }
 
 /* Input with inline character counter */
@@ -2981,32 +3071,34 @@ html, body {
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 13px;
-  color: #8c8c8c;
+  color: #8c7c82;
   pointer-events: none;
 }
 
-/* "Before you continue..." Manifesto section */
+/* "Before you continue..." Manifesto Section */
 .signup-manifesto-card {
-  margin-top: 14px;
-  padding-top: 24px;
-  border-top: 1px solid #eae6df;
+  margin-top: 10px;
+  padding: 26px 28px;
+  background: #faf6f0;
+  border: 1px solid rgba(229, 193, 88, 0.4);
+  border-radius: 14px;
 }
 
 .manifesto-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 23px;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 20px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4a0e17;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
 }
 
 .manifesto-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 28px;
-  margin-bottom: 24px;
 }
 
 @media (max-width: 768px) {
@@ -3023,24 +3115,24 @@ html, body {
 }
 
 .manifesto-check-icon {
-  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .manifesto-text {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 14.5px;
+  color: #3b2029;
   line-height: 1.45;
-  color: #383838;
+  font-weight: 450;
 }
 
-.full-width-field {
-  width: 100%;
-}
-
-/* Custom Checkbox */
+/* Checkbox Consent */
 .consent-checkbox-row {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .custom-checkbox-container {
@@ -3054,28 +3146,30 @@ html, body {
 .custom-checkbox-container input[type="checkbox"] {
   position: absolute;
   opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  pointer-events: none;
 }
 
 .checkbox-checkmark {
   width: 20px;
   height: 20px;
-  background-color: #c41d7f;
-  border: 1px solid #c41d7f;
-  border-radius: 4px;
-  display: flex;
+  border: 1.8px solid #c48e2d;
+  border-radius: 5px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
   margin-top: 2px;
+  flex-shrink: 0;
+  background: #ffffff;
   transition: all 0.2s ease;
 }
 
-.custom-checkbox-container input[type="checkbox"]:not(:checked) + .checkbox-checkmark {
-  background-color: #ffffff;
-  border-color: #d4d4d4;
+.custom-checkbox-container input[type="checkbox"]:checked + .checkbox-checkmark {
+  background: #ff3b69;
+  border-color: #ff3b69;
+}
+
+.custom-checkbox-container input[type="checkbox"]:checked + .checkbox-checkmark svg path {
+  stroke: #ffffff;
 }
 
 .custom-checkbox-container input[type="checkbox"]:not(:checked) + .checkbox-checkmark svg {
@@ -3083,103 +3177,123 @@ html, body {
 }
 
 .checkbox-label-text {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 14px;
-  line-height: 1.45;
-  color: #2e2e2e;
+  color: #4a363d;
+  line-height: 1.5;
 }
 
 .legal-link {
-  color: #c41d7f;
+  color: #ff3b69;
   text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: 500;
-  transition: color 0.2s;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .legal-link:hover {
-  color: #9e1063;
+  color: #c41d7f;
 }
 
-/* Submit row */
+/* Submit Button with Warm Gold / Rose Glow */
 .form-submit-row {
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .signup-submit-btn {
-  background: #c41d7f;
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(135deg, #c41d7f 0%, #ff3b69 100%);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  border-radius: 10px;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 16px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(196, 29, 127, 0.25);
+  box-shadow: 0 6px 20px rgba(196, 29, 127, 0.28);
 }
 
 .signup-submit-btn:hover {
-  background: #a8136b;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(196, 29, 127, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(196, 29, 127, 0.4);
+  background: linear-gradient(135deg, #a8176b 0%, #f52257 100%);
 }
 
-/* Success status card */
+.signup-submit-btn:active {
+  transform: translateY(0);
+}
+
+.signup-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success Card */
 .application-status-card {
   margin-top: 24px;
-  padding: 32px;
-  background: #fcf6f9;
-  border: 1px solid #f0b5d5;
-  border-radius: 12px;
+  padding: 36px 30px;
+  background: #fbf7f2;
+  border: 1.5px solid rgba(229, 193, 88, 0.6);
+  border-radius: 14px;
   text-align: center;
-  animation: fadeIn 0.4s ease-out;
+  box-shadow: 0 8px 30px rgba(74, 14, 23, 0.06);
 }
 
-.status-card-inner .status-icon {
-  width: 48px;
-  height: 48px;
-  background: #c41d7f;
+.status-card-inner {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.status-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #c41d7f 0%, #ff3b69 100%);
   color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 auto 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 18px rgba(196, 29, 127, 0.3);
 }
 
-.status-card-inner h3 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 24px;
-  color: #333333;
-  margin-bottom: 12px;
+.application-status-card h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 26px;
+  color: #2b0b14;
+  margin-bottom: 10px;
 }
 
-.status-card-inner p {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+.application-status-card p {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 15px;
-  color: #555555;
+  color: #553e46;
   line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto 20px;
+  margin-bottom: 22px;
 }
 
 .status-home-btn {
-  display: inline-block;
-  padding: 10px 24px;
-  background: #262626;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: #4a0e17;
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 14.5px;
-  font-weight: 500;
-  transition: background 0.2s;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .status-home-btn:hover {
-  background: #000000;
+  background: #2b080e;
+  transform: translateY(-1px);
 }

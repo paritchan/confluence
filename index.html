@@ -7,10 +7,11 @@
   <meta name="description" content="Scroll-driven frame animation engine and interactive experience for meet4lyf.">
   <meta property="og:title" content="meet4lyf - Confluence">
   <meta property="og:description" content="Scroll-driven frame animation engine and interactive experience for meet4lyf.">
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="icon" type="image/jpeg" href="logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="frames/frame_0001.webp" type="image/webp">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
     <div class="header-inner">
       <a href="#" class="brand-link" id="brand-link">
         <div class="logo-wrapper">
-          <img src="logo.jpg" alt="meet4lyf logo" class="brand-logo">
+          <img src="logo.webp" alt="meet4lyf logo" class="brand-logo" decoding="async">
         </div>
         <span class="brand-title">meet<span class="brand-highlight">4</span>lyf</span>
       </a>
@@ -177,7 +178,7 @@
   <div id="loading-overlay" class="loading-overlay">
     <div class="loader-content">
       <div class="loader-logo-preview">
-        <img src="logo.jpg" alt="meet4lyf" class="loader-logo">
+        <img src="logo.webp" alt="meet4lyf" class="loader-logo" loading="lazy" decoding="async">
       </div>
       <div class="loader-spinner"></div>
       <div class="loader-text">Loading meet4lyf...</div>
@@ -193,7 +194,7 @@
     <div class="modal-card">
       <button id="modal-close-btn" class="modal-close" aria-label="Close modal">&times;</button>
       <div class="modal-header">
-        <img src="logo.jpg" alt="meet4lyf" class="modal-logo">
+        <img src="logo.webp" alt="meet4lyf" class="modal-logo" loading="lazy" decoding="async">
         <h2 id="modal-title" class="modal-heading">Welcome to meet4lyf</h2>
         <p class="modal-sub">Meaningful meetups, authentic connections</p>
       </div>

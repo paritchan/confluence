@@ -7,9 +7,9 @@
 
   // Configuration
   const TOTAL_FRAMES = 240;
-  const INITIAL_BATCH_SIZE = 15;
+  const INITIAL_BATCH_SIZE = 6;
   const FRAME_PREFIX = 'frames/frame_';
-  const FRAME_EXTENSION = '.png';
+  const FRAME_EXTENSION = '.webp';
   const LERP_FACTOR = 0.085; // Inertia damping factor for silky smooth scrubbing
 
   // DOM Elements
@@ -98,7 +98,7 @@
     }
 
     // Dismiss loader once priority batch is ready
-    if (!isInitialReady && (loadedCount >= INITIAL_BATCH_SIZE || percent >= 15)) {
+    if (!isInitialReady && (loadedCount >= INITIAL_BATCH_SIZE || percent >= 3)) {
       isInitialReady = true;
       dismissLoader();
     }
@@ -129,7 +129,7 @@
     }
 
     // Batch loading (chunks of 10)
-    const BATCH_SIZE = 10;
+    const BATCH_SIZE = 16;
     for (let i = 0; i < remainingIndices.length; i += BATCH_SIZE) {
       const chunk = remainingIndices.slice(i, i + BATCH_SIZE);
       await Promise.all(chunk.map((idx) => loadFrame(idx)));
