@@ -1,18 +1,10 @@
 RewriteEngine On
 
-# Allow direct file access if file exists
+# If direct file exists, serve it
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Allow direct directory access if directory exists
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# Rewrite /signup to /signup.html
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^ %{REQUEST_URI}.html [L]
-
-# Custom fallback
+# Clean URL rewriting for static files without slash
 RewriteRule ^signup/?$ signup.html [L]
 RewriteRule ^about/?$ about.html [L]
 RewriteRule ^faq/?$ faq.html [L]
